@@ -1,25 +1,21 @@
 <form class="well" (submit)="addCd($event)">
   <div class="form-group">
-    <input type="text" [(ngModel)]="titel" name="titel" class="form-control" placeholder="add cd"/>
+    <input type="text" [(ngModel)]="titel" name="titel" class="form-control" placeholder="add cd" />
   </div>
 </form>
 
-<div class="row">
-  <div class="col-md-8">.col-md-8</div>
-  <div class="col-md-4">.col-md-4</div>
-</div>
-
-
-  <div *ngFor="let cd of cds" class="row">
+<div *ngFor="let cd of cds" class="row">
   <div class="col-md-1">
     {{cd.id}}
   </div>
   <div class="col-md-7">
     {{cd.titel}}
   </div>
-  <div class="col-md-4">
-    <input type="button" (click)="deleteCd(cd.id)" value="Löschen" class="btn btn-danger"/>
+  <div class="col-md-2">
+    {{cd.jahr}}
+  </div>
+  <div class="col-md-2">
+    <input type="button" (click)="deleteCd(cd.id)" value="Löschen" class="btn btn-danger" />
   </div>
   <br><br>
 </div>
-
