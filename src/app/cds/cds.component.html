@@ -4,8 +4,13 @@
   </div>
 </form>
 
-<div class="cd-list">
-  <div *ngFor="let cd of cds">
+<div class="row">
+  <div class="col-md-8">.col-md-8</div>
+  <div class="col-md-4">.col-md-4</div>
+</div>
+
+
+  <div *ngFor="let cd of cds" class="row">
   <div class="col-md-1">
     {{cd.id}}
   </div>
@@ -17,4 +22,4 @@
   </div>
   <br><br>
 </div>
-</div>
+
