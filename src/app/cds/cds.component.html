@@ -1,0 +1,20 @@
+<form class="well" (submit)="addCd($event)">
+  <div class="form-group">
+    <input type="text" [(ngModel)]="titel" name="titel" class="form-control" placeholder="add cd"/>
+  </div>
+</form>
+
+<div class="cd-list">
+  <div *ngFor="let cd of cds">
+  <div class="col-md-1">
+    {{cd.id}}
+  </div>
+  <div class="col-md-7">
+    {{cd.titel}}
+  </div>
+  <div class="col-md-4">
+    <input type="button" (click)="deleteCd(cd.id)" value="Delete" class="btn btn-danger"/>
+  </div>
+  <br><br>
+</div>
+</div>
