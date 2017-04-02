@@ -17,6 +17,7 @@ export class CdsComponent implements OnInit {
 
   addCd(event) {
     event.preventDefault();
+    console.log(event);
     var newCd = {
       titel: this.titel,
       jahr: '2010'
