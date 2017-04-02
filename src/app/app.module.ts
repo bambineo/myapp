@@ -7,6 +7,7 @@ import { CdService } from './cd.service';
 
 import { AppComponent } from './app.component';
 import { CdsComponent } from './cds/cds.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const appRoutes: Routes = [
   {
@@ -17,7 +18,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CdsComponent
+    CdsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
