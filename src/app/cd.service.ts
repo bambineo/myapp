@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class CdService {
   constructor(private http:Http) {
-    console.log('Task Service Initialized...');
+    console.log('CD Service Initialized...');
   }
 
   getCds() {
