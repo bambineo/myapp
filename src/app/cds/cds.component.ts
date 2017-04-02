@@ -10,6 +10,7 @@ import { Cd } from '../../cd';
 export class CdsComponent implements OnInit {
   cds: Cd[];
   titel: string;
+  interpret: string;
   constructor(private cdService:CdService) {
     this.cdService.getCds().
       subscribe(cds => { this.cds = cds });
@@ -17,30 +18,34 @@ export class CdsComponent implements OnInit {
 
   addCd(event) {
     event.preventDefault();
-    console.log(event);
+    //console.log(event);
     var newCd = {
+      id: null,
+      interpret: this.interpret,
       titel: this.titel,
       jahr: '2010'
     }
 
     this.cdService.addCd(newCd).
       subscribe(cd => {
-        this.cds.push(cd);
+        console.log(cd.insertId);
+        newCd.id = cd.insertId;
+        this.cds.push(newCd);
         this.titel = '';
+        this.interpret = '';
       });
 
   }
 
-  deleteCd(id) {
+  deleteCd(cd) {
     var cds = this.cds;
-    this.cdService.deleteCd(id).subscribe(data => {
+    this.cdService.deleteCd(cd.id).subscribe(data => {
       console.log(data);
       if (data.affectedRows == 1) {
-        for (var i=0;i < cds.length; i++) {
-          if (cds[i].id == id) {
-            cds.splice(i, 1);
-          }
+        if (cds.indexOf(cd) > -1) {
+          cds.splice(cds.indexOf(cd), 1);
         }
+        
       }
     });
   }
