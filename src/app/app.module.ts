@@ -8,6 +8,7 @@ import { CdService } from './cd.service';
 import { AppComponent } from './app.component';
 import { CdsComponent } from './cds/cds.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MaterialModule } from '@angular/material';
 
 const appRoutes: Routes = [
   {
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    [MaterialModule]
   ],
   providers: [CdService],
   bootstrap: [AppComponent]
