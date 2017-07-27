@@ -1,0 +1,18 @@
+<p>
+  <input type="button" (click)="getBankInfo()" value="Bank-Infos anzeigen" class="btn btn-danger" />
+</p>
+<p>
+  <input type="button" (click)="getMaterialsInfo()" value="Materialien anzeigen ({{ anzahlMaterialien }})" class="btn btn-danger"
+  />
+</p>
+<ul>
+  <ng-container *ngFor="let bankItem of bankItems">
+    <li *ngIf="(bankItem); else emptySlot">
+      {{ bankItem.id }} ({{ bankItem.count }})
+    </li>
+  </ng-container>
+  <ng-template #emptySlot>
+    <li>leer
+    </li>
+  </ng-template>
+</ul>
