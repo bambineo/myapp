@@ -28,7 +28,7 @@ export class Gw2Service {
   }
   
   getItem(id) {
-    return this.http.get(this.apiPath + 'items/id/'+id+'?access_token=' + this.apiKey)
+    return this.http.get(this.apiPath + 'items/'+id+'?access_token=' + this.apiKey)
       .map(res => res.json())
   }
 

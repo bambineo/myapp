@@ -12,16 +12,21 @@ export class Gw2Component implements OnInit {
   bankItems;
 
   constructor(private gw2Service: Gw2Service) {
-    // this.gw2Service.getAccountInfo().subscribe(result => (console.log(result)))
+
   }
 
   getBankInfo() {
-    this.gw2Service.getBank().subscribe(result => (
-      console.log(result.length),
-      console.log('test'),
-      this.bankItems = result
-      
-      )
+    this.gw2Service.getBank().subscribe(bankItems => (
+      bankItems.forEach(element => {
+        if (element) {
+          this.gw2Service.getItem(element.id).subscribe(item => (
+            element.item = item
+          ))
+        }
+        this.bankItems = bankItems
+      })
+    )
+
     )
   }
 
@@ -29,15 +34,18 @@ export class Gw2Component implements OnInit {
     this.anzahlMaterialien = 0;
     this.gw2Service.getMaterials().subscribe(result => (
       this.anzahlMaterialien = result.length
-      )
+    )
     )
   }
 
   getItem(id) {
+    var itemName = '';
     this.gw2Service.getItem(id).subscribe(result => (
-      console.log(id)
-      )
+      console.log(result.name),
+      itemName = result.name
     )
+    )
+
   }
 
   ngOnInit() {
