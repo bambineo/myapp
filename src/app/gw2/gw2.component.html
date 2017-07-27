@@ -8,7 +8,7 @@
 <ul>
   <ng-container *ngFor="let bankItem of bankItems">
     <li *ngIf="(bankItem); else emptySlot">
-      {{ bankItem.item.name }} {{ bankItem.id }} ({{ bankItem.count }})
+      <img width="30" height="30" src="{{ bankItem.item.icon}} "/> {{ bankItem.item.name }} {{ bankItem.id }} ({{ bankItem.count }})
     </li>
   </ng-container>
   <ng-template #emptySlot>
