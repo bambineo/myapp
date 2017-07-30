@@ -6,13 +6,18 @@
   />
 </p>
 <ul>
-  <ng-container *ngFor="let bankItem of bankItems">
-    <li *ngIf="(bankItem); else emptySlot">
-      <img width="30" height="30" src="{{ bankItem.item.icon}} "/> {{ bankItem.item.name }} {{ bankItem.id }} ({{ bankItem.count }})
-    </li>
+  <ng-container *ngFor="let bankItem of bankItems, let i = index">
+    
+      <li *ngIf="(bankItem); else emptySlot" style="float: left; padding: 3px; list-style-type: none">
+         <img *ngIf="(bankItem.item)" width="30" height="30" src="{{ bankItem.item.icon }} " /> 
+      </li>
+      <div class="row" *ngIf="i % 10 === 0 && i != 0"> 
+      <p *ngIf="i % 30 === 0"><br><br></p>
+    </div> 
+    <!-- <div class="row" *ngIf="i % 30 === 0"></div> -->
   </ng-container>
   <ng-template #emptySlot>
-    <li>leer
+    <li style="float: left; padding: 3px; list-style-type: none">leer
     </li>
   </ng-template>
 </ul>
